@@ -1,0 +1,12 @@
+{
+  "name": "mombasa-ambassador",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "got": "^11.8.1",
+    "jsdom": "^16.4.0",
+    "mongoose": "^5.11.8",
+    "node-schedule": "^1.3.2"
+  }
+}

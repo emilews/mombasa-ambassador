@@ -1,0 +1,22 @@
+{
+  "core": [
+    {
+      "name": "Bitcoin Cash",
+      "ticker": "BCH"
+    },
+    {
+      "name": "Bitcoin",
+      "ticker": "BTC"
+    },
+    {
+      "name": "Litecoin",
+      "ticker": "LTC"
+    }
+  ],
+  "extras": [
+    {
+      "name": "ETN",
+      "ticker": "Electroneum"
+    }
+  ]
+}

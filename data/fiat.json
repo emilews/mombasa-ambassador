@@ -1,0 +1,18 @@
+{
+  "core": [
+    {
+      "name": "United States Dollar",
+      "ticker": "USD"
+    },
+    {
+      "name": "Mexican Peso",
+      "ticker": "MXN"
+    },
+    {
+      "name": "Euro",
+      "ticker": "EUR"
+    }
+  ],
+  "extras": [
+  ]
+}

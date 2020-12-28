@@ -1,11 +1,20 @@
 const got = require('got');
-export const GetLatestCryptoPage = (crypto_name) => {
-    return BaseFetch(`https://coinmarketcap.com/currencies/${crypto_name.split(" ").join("").toLowerCase()}/`);
+const GetLatestCryptoPage = (crypto_name) => {
+    return BaseFetch(`https://coinmarketcap.com/currencies/${crypto_name.split(" ").join("-").toLowerCase()}/`);
 }
-export const GetLatestFiatPage = (fiat_ticker) => {
-    return BaseFetch(`https://www.xe.com/es/currencyconverter/convert/?Amount=1&From=USD&To=${fiat_ticker.toUpperCase()}`)
+const GetLatestBCHPage = () => {
+    return BaseFetch(`https://coinmarketcap.com/currencies/bitcoin-cash/`);
+}
+const GetLatestFiatPage = (fiat_ticker) => {
+    return BaseFetch(`https://www.marketwatch.com/investing/currency/usd${fiat_ticker.toLowerCase()}`);
 }
 
+const GetLatestCryptoFile = () => {
+    return BaseFetch('https://raw.githubusercontent.com/emilews/mombasa-papers/master/crypto.json');
+}
+const GetLatestFiatFile = () => {
+    return BaseFetch('https://raw.githubusercontent.com/emilews/mombasa-papers/master/fiat.json');
+}
 
 const BaseFetch = async (uri) => {
     let response = null;
@@ -16,3 +25,5 @@ const BaseFetch = async (uri) => {
     }
     return response;
 }
+
+module.exports = {GetLatestCryptoFile, GetLatestFiatFile, GetLatestFiatPage, GetLatestCryptoPage, GetLatestBCHPage }

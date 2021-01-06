@@ -51,8 +51,8 @@ const UpdateMainBCHPrice = async () => {
     let bchPage = await GetLatestBCHPage();
     SaveData({ticker: "BCH", price: GetCryptoPriceElement(bchPage)})('crypto');
 }
+UpdateMainBCHPrice();
 
 var j = schedule.scheduleJob(' */1 * * * *', function(){
-    UpdateMainBCHPrice();
     UpdateSourceFiles();
 });

@@ -1,19 +1,22 @@
 const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
 
-const CRYPTO_PRICE_ELEMENT_TAG = 'cmc-details-panel-price__price';
+const CRYPTO_PRICE_ELEMENT_TAG = 'priceValue___11gHJ';
 const FIAT_PRICE_ELEMENT_TAG = 'intraday__price';
 
 const GetCryptoPriceElement = (page) => {
     const cryptoPage = new JSDOM(page.body);
 
-    if(cryptoPage.window.document.querySelector(`span.${CRYPTO_PRICE_ELEMENT_TAG}`) !== null){
-        return parseFloat(cryptoPage.window.document.querySelector(`span.${CRYPTO_PRICE_ELEMENT_TAG}`).textContent.split("$")[1].replace(/,/g, ''))
+    if(cryptoPage.window.document.querySelector(`div.${CRYPTO_PRICE_ELEMENT_TAG}`) !== null){
+        console.log(parseFloat(cryptoPage.window.document.querySelector(`div.${CRYPTO_PRICE_ELEMENT_TAG}`).textContent.split("$")[1].replace(/,/g, '')))
+        return parseFloat(cryptoPage.window.document.querySelector(`div.${CRYPTO_PRICE_ELEMENT_TAG}`).textContent.split("$")[1].replace(/,/g, ''))
     }else {
-        if(cryptoPage.window.document.querySelector(`span.${CRYPTO_PRICE_ELEMENT_TAG}.cmc-detail-price-down-active`) !== null){
+        if(cryptoPage.window.document.querySelector(`div.${CRYPTO_PRICE_ELEMENT_TAG}.cmc-detail-price-down-active`) !== null){
+            console.log(parseFloat(cryptoPage.window.document.querySelector(`span.${CRYPTO_PRICE_ELEMENT_TAG}.cmc-detail-price-down-active`).textContent.split("$")[1].replace(/,/g, '')))
             return parseFloat(cryptoPage.window.document.querySelector(`span.${CRYPTO_PRICE_ELEMENT_TAG}.cmc-detail-price-down-active`).textContent.split("$")[1].replace(/,/g, ''));
         }else{
-            if(cryptoPage.window.document.querySelector(`span.${CRYPTO_PRICE_ELEMENT_TAG}.cmc-detail-price-up-active`) !== null){
+            if(cryptoPage.window.document.querySelector(`div.${CRYPTO_PRICE_ELEMENT_TAG}.cmc-detail-price-up-active`) !== null){
+                console.log(parseFloat(cryptoPage.window.document.querySelector(`span.${CRYPTO_PRICE_ELEMENT_TAG}.cmc-detail-price-up-active`).textContent.split("$")[1].replace(/,/g, '')))
                 return parseFloat(cryptoPage.window.document.querySelector(`span.${CRYPTO_PRICE_ELEMENT_TAG}.cmc-detail-price-up-active`).textContent.split("$")[1].replace(/,/g, ''));
             }
         }

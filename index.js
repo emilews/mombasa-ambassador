@@ -53,6 +53,6 @@ const UpdateMainBCHPrice = async () => {
 }
 UpdateMainBCHPrice();
 
-var j = schedule.scheduleJob(' */1 * * * *', function(){
+schedule.scheduleJob(' */1 * * * *', function(){
     UpdateSourceFiles();
 });

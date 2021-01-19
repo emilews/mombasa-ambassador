@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const { Crypto, Fiat } = require('./models');
 const { GetCachedBCHPrice } = require('./utils');
-mongoose.connect('mongodb://localhost/mombasa', {useNewUrlParser: true,  useUnifiedTopology: true});
+mongoose.connect('mongodb://localhost:27017/mombasa', {useNewUrlParser: true,  useUnifiedTopology: true});
 
 const SaveData = (data) => (kind) => {
     if(kind === 'fiat') {

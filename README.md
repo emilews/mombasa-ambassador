@@ -39,7 +39,7 @@ and run it in detached mode:
 docker run -d emilews/mombasa-ambassador
 ```
 
-##More currencies
+## More currencies
 Please refer to the [Mombasa Papers](https://github.com/emilews/mombasa-papers) readme.
 ## Donations
 
